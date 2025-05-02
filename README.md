@@ -18,6 +18,4 @@ Huetopia, a React-powered web-app crafted during our Ironhack Web Development Bo
 
 <img src="./src/assets/demo.png"/>
 
-# Demo
 
-Try [Huetopia](https://huetopia.netlify.app/) yourself!
