@@ -6,16 +6,16 @@ import FilterByEmoji from "./FilterByEmoji";
 function ColorPalettesList(props) {
   const [palettes, setPalettes] = useState(null);
   const [value, setValue] = useState("");
-  const [filterMenu, setFilterMenu] = useState(false)
-  const [filtered, setFiltered] = useState(false)
+  const [filterMenu, setFilterMenu] = useState(false);
+  const [filtered, setFiltered] = useState(false);
 
   useEffect(() => {
     axios
-      .get("https://huetopia-api.adaptable.app/" + props.url)
+      .get("https://json-server-backend-xys5.onrender.com/" + props.url)
       .then((response) => {
         setPalettes(response.data);
 
-        const lowerValue = value.toLowerCase()
+        const lowerValue = value.toLowerCase();
 
         const filteredPalettes = response.data.filter(
           (palette) =>
@@ -35,18 +35,22 @@ function ColorPalettesList(props) {
   }, [value]);
 
   function filterEmoji(chosenEmoji) {
-    setPalettes(palettes)
+    setPalettes(palettes);
 
     const filteredPalettes = palettes.filter((palette) => {
-      if (palette.theme.emojis[0] === chosenEmoji || palette.theme.emojis[1] === chosenEmoji || palette.theme.emojis[2] === chosenEmoji) {
-        return palette
+      if (
+        palette.theme.emojis[0] === chosenEmoji ||
+        palette.theme.emojis[1] === chosenEmoji ||
+        palette.theme.emojis[2] === chosenEmoji
+      ) {
+        return palette;
       }
-    })
+    });
     setFiltered(filteredPalettes);
   }
 
   function resetEmojis() {
-    setFiltered(palettes)
+    setFiltered(palettes);
   }
 
   return (
@@ -60,7 +64,10 @@ function ColorPalettesList(props) {
             <h1 className="font-bold text-neutral">ALL COLORS</h1>
           )}
           <div className="flex flex-col items-end sm:items-center sm:flex-row">
-            <button className="btn btn-sm mb-1 sm:mx-4" onClick={() => setFilterMenu(!filterMenu)}>
+            <button
+              className="btn btn-sm mb-1 sm:mx-4"
+              onClick={() => setFilterMenu(!filterMenu)}
+            >
               EMOJI FILTER
             </button>
             <label className="w-full input input-bordered flex items-center gap-2 sm:w-50 h-7 my-1">
@@ -87,9 +94,13 @@ function ColorPalettesList(props) {
           </div>
         </div>
         <div className="divider my-0"></div>
-        {filterMenu &&
-          <FilterByEmoji url={props.url} filterEmoji={filterEmoji} resetEmojis={resetEmojis} />
-        }
+        {filterMenu && (
+          <FilterByEmoji
+            url={props.url}
+            filterEmoji={filterEmoji}
+            resetEmojis={resetEmojis}
+          />
+        )}
       </div>
       <div className="flex flex-wrap grid-cols-3 text-neutral ">
         {palettes === null ? (

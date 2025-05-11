@@ -6,7 +6,7 @@ function FilterByEmoji(props) {
 
   useEffect(() => {
     axios
-      .get("https://huetopia-api.adaptable.app/" + props.url)
+      .get("https://json-server-backend-xys5.onrender.com/" + props.url)
       .then((response) => {
         const uniqueEmojis = new Set();
 

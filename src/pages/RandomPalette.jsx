@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 //   useEffect(() => {
 //     axios
-//       .get("https://huetopia-api.adaptable.app/palettes")
+//       .get("https://json-server-backend-xys5.onrender.com/palettes")
 //       .then((response) => {
 //         setColors(response.data[0].colors);
 //       })
@@ -45,7 +45,7 @@ export const RandomPalette = () => {
 
   useEffect(() => {
     axios
-      .get("https://huetopia-api.adaptable.app/palettes")
+      .get("https://json-server-backend-xys5.onrender.com/palettes")
       .then((response) => {
         let palettesLength = response.data.length;
         let randomIndex = Math.floor(Math.random() * palettesLength) + 1;
@@ -57,5 +57,9 @@ export const RandomPalette = () => {
       });
   }, []);
 
-  return <div className="min-h-vh w-full flex justify-center"><span className="loading loading-bars loading-md"></span></div>;
+  return (
+    <div className="min-h-vh w-full flex justify-center">
+      <span className="loading loading-bars loading-md"></span>
+    </div>
+  );
 };

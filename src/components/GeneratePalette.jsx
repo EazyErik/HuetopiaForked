@@ -26,7 +26,7 @@ export const GeneratePalette = () => {
 
       // store new AI palette to REST API
       const res2 = await axios.post(
-        "https://huetopia-api.adaptable.app/palettes",
+        "https://json-server-backend-xys5.onrender.com/palettes",
         newPalette
       );
 
@@ -42,10 +42,7 @@ export const GeneratePalette = () => {
   };
 
   return (
-    <div
-      className="w-full h-full py-10 flex-grow flex sm:py-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0"
-      
-    >
+    <div className="w-full h-full py-10 flex-grow flex sm:py-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0">
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse items-center h-full md:flex-row sm:px-6 lg:px-8 md:h-full">
         <div className="flex flex-col items-center md:items-start justify-center ">
           <h2 className="text-3xl text-center md:text-4xl lg:text-5xl md:text-left w-full font-bold mb-4 lg:w-3/4 ">
@@ -86,7 +83,9 @@ export const GeneratePalette = () => {
           </form>
         </div>
         <div className="stack w-2/5 mb-14 mt-10 sm:w-3/5 md:inline-grid lg:w-2/5">
-          <Link to="/random"><img src={example1} className="rounded" /></Link>
+          <Link to="/random">
+            <img src={example1} className="rounded" />
+          </Link>
           <img src={example1} className="rounded" />
           <img src={example1} className="rounded" />
         </div>
